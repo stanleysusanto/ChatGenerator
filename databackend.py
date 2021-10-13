@@ -2,7 +2,7 @@ import os
 # import pymongo
 import json
 import random
-import psycopg2
+import django
 from flask import jsonify
 
 
@@ -11,7 +11,7 @@ from flask import jsonify
 def connector():
     # cockroachstring = "dbname='wet-dingo-838.defaultdb' user='muntaser' password='geturownpassword' host='free-tier.gcp-us-central1.cockroachlabs.cloud' port='26257'"
     cockroachstring = os.environ.get('COCKROACHSTR')
-    conn=psycopg2.connect(cockroachstring)
+    conn=django.connect(cockroachstring)
     return conn
 
 
